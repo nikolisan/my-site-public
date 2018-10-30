@@ -31,10 +31,13 @@ class MainPage extends Component {
     }
     
     componentDidMount() {
-        this.getProjects().then((projects) => this.setState({projects}));
+        console.log("Main page did mount");
+        // this.getProjects().then((projects) => this.setState({projects}));
     };
 
     render() {
+        const projects = this.props.projects;
+
         return(
             <div>
                 <Navbar />
@@ -45,18 +48,19 @@ class MainPage extends Component {
                     <div className="text-center m-0 pb-2 pt-4">
                         <h2 className="display-4">Projects</h2>
                     </div>
-                    <div className="row no-gutters">
-                    {this.state.projects.length > 0
-                        ?
-                        this.state.projects.map((project) => {
-                            return (
-                            <Project project={project} key={project.id}/>
-                            );
-                        })
-                        : <div className="my-2 mx-auto">
-                            <PulseLoader sizeUnit={'px'} size={40} color={"#323B3C"}/>
+                    <div className="container pb-4">
+                        <div className="row no-gutters text-center">
+                        {Object.keys(projects).length
+                            ?
+                                Object.keys(projects).map((key) => {
+                                    return (
+                                        <Project key={key} project={projects[key]}/>
+                                    )
+                                })
+                            : 
+                                <p className="col lead">No projects available</p>
+                        }
                         </div>
-                    }
                     </div>
                 </section>
                 <ContactSection />
@@ -67,3 +71,34 @@ class MainPage extends Component {
 };
 
 export default MainPage;
+
+
+
+// return(
+//     <div>
+//         <Navbar />
+//         <Hero />
+//         <Preview />
+//         <div className="offset-anchor" id="projects"></div>
+//         <section className="projects">
+//             <div className="text-center m-0 pb-2 pt-4">
+//                 <h2 className="display-4">Projects</h2>
+//             </div>
+//             <div className="row no-gutters">
+//             {this.state.projects.length > 0
+//                 ?
+//                 this.state.projects.map((project) => {
+//                     return (
+//                     <Project project={project} key={project.id}/>
+//                     );
+//                 })
+//                 : <div className="my-2 mx-auto">
+//                     <PulseLoader sizeUnit={'px'} size={40} color={"#323B3C"}/>
+//                 </div>
+//             }
+//             </div>
+//         </section>
+//         <ContactSection />
+//         <Footer />
+//     </div>
+// );
