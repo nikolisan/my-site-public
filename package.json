@@ -2,12 +2,23 @@
   "name": "my-site",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://www.andreakos.me",
   "dependencies": {
+    "bootstrap": "4",
+    "gh-pages": "^2.0.1",
+    "jquery": "^3.3.1",
+    "node-sass": "^4.9.4",
+    "popper.js": "^1.14.4",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-scripts": "2.0.5"
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.0.5",
+    "react-spinners": "^0.4.7",
+    "reactstrap": "^6.5.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

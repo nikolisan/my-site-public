@@ -1,0 +1,235 @@
+//Variable Overrides
+
+
+$color1         : #f26419;
+$lighterDark    : #516163;
+
+$theme-colors: (
+//   "primary": #343a40,
+    "dark"      : #323B3C,
+    "primary"   : #323B3C,
+    "secondary" : #86bbd8,
+    "textColor" : #ced4da,
+    "link-color": red
+);
+
+//Bootstrap Sass files
+@import "node_modules/bootstrap/scss/bootstrap";
+
+*:not(.btn, .textbox) {
+    border-radius: 0 !important;
+ }
+ * {
+    // overflow-y: hidden;
+    overflow-x: hidden;
+ }
+
+// loader
+$width: 30px;
+$height: 30px;
+$bounce_height: 30px;
+
+.preloader-overlay {
+    background: #323B3C;
+    position: fixed; 
+    width: 100%;
+    height: 100vh;
+    font-size: 1.5em;
+    font-family: Montserrat;
+    z-index: 9999;
+}
+
+.wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text {
+  color: #fbae17;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.bounceball {
+  position: relative;
+  display: inline-block;
+  height: 37px;
+  width: $width;
+  &:before {
+    position: absolute;
+    content: '';
+    display: block;
+    top: 0;
+    width: $width;
+    height: $height;
+    border-radius: 50%;
+    background-color: #fbae17;
+    transform-origin: 50%;
+    animation: bounce 500ms alternate infinite ease;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    top: $bounce_height;
+    height: 5px;
+    border-radius: 60px 60px 20px 20px;
+    transform: scaleX(2);
+  }
+  35% {
+    height: $height;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0;
+  }
+}
+//loader end//
+
+.offset-anchor {
+    border-top: 61px solid transparent;
+    margin: -61px 0 0;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+  }
+
+body {
+    background: $gray-100;
+}
+
+p {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.2rem;
+}
+
+.lead {
+    font-size: 1.4rem;
+}
+
+h1, h2, h3, h4, h5, .btn{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.about-me .skills .projects .footer .contact .footer{
+    width: 100vw;
+}
+
+// NAVBAR //
+.navbar-collapse a {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.3rem;
+}
+
+.navbar-collapse a:hover, .navbar-collapse a:focus,
+.footer a:hover, .footer a:focus{
+    color: $color1 !important;
+}
+
+.navbar-brand {
+    font-variant: small-caps;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 1.5rem;
+}
+
+.menu .indicator {
+    border-bottom: 5px solid orangered;
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    opacity: 0;
+}
+
+// HERO //
+.hero {
+    display: flex;
+    background: linear-gradient(#86bbd846,#187ab825), url(../images/bridge.jpg) no-repeat 50% 50%;
+    background-size: cover; 
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+}
+
+.row .hero-section {
+    position: relative;
+}
+
+.bottom-align-text {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+// About $ Skills Sections
+
+#about-me-section{
+    background: url(../images/yosemite.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+#skills-section{
+    background: url(../images/computer.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.textbox {
+	outline: 3px solid $gray-500;
+	outline-offset: -1.5em;
+    position: relative;
+}
+
+.text-box-head {
+    position: absolute;
+	top: 0.2em;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0 0.5em;
+}
+
+// Project Cards
+
+#project-card {
+    width: 100%; 
+    height: 50vh;
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
+  }
+  
+  .card-img {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-color: black; /* fallback color */
+    background-position: center;
+    background-size: cover;
+    transition: all 0.3s ease-in-out;
+    opacity:1;
+  }
+ 
+  .card:hover .allow-scale,
+  .card:focus .allow-scale {
+    opacity:0.4;
+    transform: scale(1.05);
+  }
+  
+  .card:hover .card-img-overlay{
+      color: theme-colors("primary");
+  }
+  
+  .card-img-overlay:hover .hover-show{
+      display: block !important;
+  }
+
+// Contact Area
+.contact-area{
+    background: $lighterDark;
+}
