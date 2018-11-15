@@ -1,59 +1,71 @@
 import React, { Component } from 'react';
+import './admin.css';
+
+import AdminNav from './AdminNavbar';
+import AdminSidebar from './AdminSidebar';
+import AdminProjectTiles from './AdminProjectTiles';
+import AdminProjectDetails from './AdminProjectDetails';
+import AdminAddForm from './AdminAddForm';
+
 
 class AdminPanel extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            selectedId: null,
+            selectedProject: null,
+            addNewProject: false
+        };
+        this.selectProject = this.selectProject.bind(this);
+        this.addNewProject = this.addNewProject.bind(this);
+        this.showAll = this.showAll.bind(this);
+    }
+
+    selectProject(id) {
+        const selectedProject = Object.values(this.props.projects).filter((project) => {
+            return project.id === id
+        })
+        this.setState({
+            selectedId: id,
+            selectedProject: selectedProject[0],
+            addNewProject: false
+        });
+    }
+
+    addNewProject() {
+        this.setState({addNewProject: true});
+    }
+
+    showAll() {
+        this.setState({
+            addNewProject: false,
+            selectedId: null,
+            selectedProject: null,
+        });
     }
 
     render() {
-
         const projects = this.props.projects;
         return (
-            <div className="">
-                <nav className="navbar navbar-dark bg-primary shadow">
-                    <span class="navbar-brand">Nick Andreakos</span>
-                    <button className="btn btn-outline-light my-2 my-sm-0 text-center"><i className="fa fa-sign-out align-middle" /> Logout</button>
-                </nav>
-                <div className="row">
-                    <nav className="col-2 sidebar">
-                        <ul className="list">
-                            {
-                                Object.keys(projects).map((key) => {
-                                    return(
-                                        <li key={key}>{projects[key].title}</li>
-                                    )
-                                })
-                            }
-                        </ul>
-                    </nav>
-
-                    <div class="col-10">
-                        <div className="border-bottom">
-                            <h1>Add new project</h1>
+            <div className="admin-panel">
+                <AdminNav />
+                <div id="wrapper" className="menuDisplayed">
+                    <AdminSidebar projects={projects} selectProject={this.selectProject} addNewProject={this.addNewProject} showAll={this.showAll}/>
+                    <div id="page-content-wrapper">
+                        <div className="container-fluid pt-3">
+                            {this.state.selectedId && !this.state.addNewProject
+                                ? <AdminProjectDetails project={this.state.selectedProject}/>
+                                : this.state.addNewProject === true
+                                    ? <AdminAddForm />
+                                    : <AdminProjectTiles  projects={projects}/>
+                            }   
                         </div>
-                        <form>
-                                <label>
-                                    Title: 
-                                    <input type="text" />
-                                </label>
-                                <label>
-                                    Short Description: 
-                                    <input type="text" />
-                                </label>
-                                <label>
-                                    Background Image: 
-                                    <input type="text" />
-                                </label>
-                                <label>
-                                    Body: 
-                                    <input type="text-area" />
-                                </label>
-                            </form>
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 
 export default AdminPanel;
+

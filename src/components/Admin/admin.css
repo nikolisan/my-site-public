@@ -1,0 +1,105 @@
+#wrapper {
+    padding-top: 55px;
+}
+/* Sidebar */
+#sidebar-wrapper {
+    z-index: 1;
+    /* background: #2c3e50; */
+    color: white;
+    position: fixed;
+    width: 0;
+    height: 100%;
+    overflow-x: hidden;
+    transition: width 0.2s linear;    
+}
+
+/* Main Content */
+#page-content-wrapper {
+    width: 100%;
+    position: relative;
+    transition: padding 0.5s ease-in-out;
+}
+
+/* Display sidebar */
+#wrapper.menuDisplayed #sidebar-wrapper {
+    width: 250px;
+}
+
+#wrapper.menuDisplayed #page-content-wrapper {
+    padding-left: 250px;
+}
+
+@media(max-width: 450px){
+    #wrapper.menuDisplayed #sidebar-wrapper {
+        width: 100%;
+    }
+}
+/* end */
+
+/* Navbar extra styling */
+.navbar {
+    z-index: 10;
+    box-shadow: 0px 2px 10px 0px #333333;
+    -moz-box-shadow: 0px 2px 10px 0px #333333;
+    -webkit-box-shadow: 0px 2px 10px 0px #333333;
+}
+/* end */
+
+/* Sidebar styling */
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li{
+    text-indent: 1.5em;
+    line-height: 2.5em;
+    display: block;
+}
+
+.sidebar-nav li:hover{
+    background: #16a085;
+    cursor: pointer;
+}
+
+.add-button {
+    position: relative;
+    margin: 1em auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+}
+/* end */
+
+/* Use 90% width for form and project dtailes */
+.project-form, .project-details, .card-columns {
+    margin: 0 auto;
+    max-width: 90%;
+}
+/* end */
+
+/* Mobile */
+@media(min-width: 768px){
+    .project-form {
+        max-width: 80%;
+    }
+    .project-link {
+        float: right;
+    }
+}
+/* end */
+
+/* project details */
+.edit-btn i {
+    font-size: 1.5rem;
+}
+
+.card-img {
+    object-fit: cover;
+    max-height: 55vh;
+}
+/* end */
+
+.card-img-tile {
+    max-height: 25vh;
+}

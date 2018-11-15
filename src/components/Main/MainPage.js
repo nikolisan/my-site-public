@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PulseLoader from 'react-spinners/PulseLoader';
 import Navbar from './Navbar';
 import Hero from './Hero';
 import Preview from './Preview';
@@ -32,7 +31,6 @@ class MainPage extends Component {
     
     componentDidMount() {
         console.log("Main page did mount");
-        // this.getProjects().then((projects) => this.setState({projects}));
     };
 
     render() {
@@ -71,34 +69,3 @@ class MainPage extends Component {
 };
 
 export default MainPage;
-
-
-
-// return(
-//     <div>
-//         <Navbar />
-//         <Hero />
-//         <Preview />
-//         <div className="offset-anchor" id="projects"></div>
-//         <section className="projects">
-//             <div className="text-center m-0 pb-2 pt-4">
-//                 <h2 className="display-4">Projects</h2>
-//             </div>
-//             <div className="row no-gutters">
-//             {this.state.projects.length > 0
-//                 ?
-//                 this.state.projects.map((project) => {
-//                     return (
-//                     <Project project={project} key={project.id}/>
-//                     );
-//                 })
-//                 : <div className="my-2 mx-auto">
-//                     <PulseLoader sizeUnit={'px'} size={40} color={"#323B3C"}/>
-//                 </div>
-//             }
-//             </div>
-//         </section>
-//         <ContactSection />
-//         <Footer />
-//     </div>
-// );

@@ -233,3 +233,18 @@ h1, h2, h3, h4, h5, .btn{
 .contact-area{
     background: $lighterDark;
 }
+
+// UNDER CONSTRUCTION //
+#under-construction {
+    position: fixed;
+    display: block;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    border-radius: 10px !important;
+    z-index: 1000;
+}
+
+.hide {
+    display: none !important;
+}
