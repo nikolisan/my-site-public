@@ -1,5 +1,9 @@
 import React from 'react';
 
+const removeProject = (callback, id) => {
+    callback(id)
+}
+
 const AdminProjectDetails = (props) => {
     return(
         <div className="card project-details mt-2">
@@ -7,7 +11,7 @@ const AdminProjectDetails = (props) => {
                 <h5 className="float-left my-auto">{props.project.title}</h5>
                 <div>
                     <button className="btn edit-btn btn-sm btn-light"><i className="fa fa-cog"></i></button>
-                    <button className="btn btn-sm btn-danger"><i className="fa fa-trash mr-1"></i></button>
+                    <button className="btn btn-sm btn-danger" onClick={() => { removeProject(props.removeProject, props.project.id) }}><i className="fa fa-trash mr-1"></i></button>
                 </div>
             </div>
             <div className="card-header text-muted small">{props.project.shortDesc}</div>
@@ -20,8 +24,8 @@ const AdminProjectDetails = (props) => {
                 </div>
             </div>
             <div className="card-footer align-middle d-flex flex-row justify-content-end">
-                <a href="#" className="btn btn-light">Download <i className="fa fa-download ml-1"></i></a>
-                <a href="#" className="btn btn-light">Github <i className="fa fa-github-square ml-1"></i></a>
+                <a href={props.project.download} className="btn btn-light">Download <i className="fa fa-download ml-1"></i></a>
+                <a href={props.project.source} className="btn btn-light">Github <i className="fa fa-github-square ml-1"></i></a>
             </div>
         </div>
     )

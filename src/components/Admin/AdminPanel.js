@@ -19,10 +19,12 @@ class AdminPanel extends Component {
         this.selectProject = this.selectProject.bind(this);
         this.addNewProject = this.addNewProject.bind(this);
         this.showAll = this.showAll.bind(this);
+        this.submitForm = this.submitForm.bind(this)
+        this.removeProject = this.removeProject.bind(this)
     }
 
     selectProject(id) {
-        const selectedProject = Object.values(this.props.projects).filter((project) => {
+        const selectedProject = this.props.projects.filter((project) => {
             return project.id === id
         })
         this.setState({
@@ -44,6 +46,16 @@ class AdminPanel extends Component {
         });
     }
 
+    submitForm(data) {
+        this.props.addProject(data)
+    }
+
+    removeProject(id) {
+        this.props.removeProject(id)
+        this.setState({selectProject: null, selectedId: null})
+    }
+    
+
     render() {
         const projects = this.props.projects;
         return (
@@ -54,10 +66,10 @@ class AdminPanel extends Component {
                     <div id="page-content-wrapper">
                         <div className="container-fluid pt-3">
                             {this.state.selectedId && !this.state.addNewProject
-                                ? <AdminProjectDetails project={this.state.selectedProject}/>
+                                ? <AdminProjectDetails project={this.state.selectedProject} removeProject={this.removeProject}/>
                                 : this.state.addNewProject === true
-                                    ? <AdminAddForm />
-                                    : <AdminProjectTiles  projects={projects}/>
+                                    ? <AdminAddForm submitForm={this.submitForm}/>
+                                    : <AdminProjectTiles  projects={projects} removeProject={this.removeProject}/>
                             }   
                         </div>
                     </div>

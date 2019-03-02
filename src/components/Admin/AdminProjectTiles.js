@@ -6,9 +6,9 @@ const AdminProjectTiles = (props) => {
     return (
         <div className="card-columns">
             {
-                Object.keys(projects).map((key) => {
+                projects.map((project) => {
                     return(
-                        <ProjectCard key={key} project={projects[key]}/>
+                        <ProjectCard key={project.id} project={project} removeProject={props.removeProject}/>
                     )
                 })
             }

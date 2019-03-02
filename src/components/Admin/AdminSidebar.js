@@ -22,15 +22,19 @@ class AdminSidebar extends Component {
         const projects = this.props.projects;
         return (
             <div id="sidebar-wrapper" className="bg-dark">
-                <button className="btn btn-outline-light add-button" onClick={this.addNewProject}><i className="fa fa-plus-circle mr-1"></i> Add new project</button>
-                <button className="btn btn-outline-light add-button mt-1" onClick={this.showAll}><i className="fa fa-plus-circle mr-1"></i> Show All</button>
-                <ul className="sidebar-nav">
-                    {
-                        Object.keys(projects).map((key) => {
-                           return <li key={key} onClick={this.selectProject.bind(this, projects[key])}>{projects[key].title}</li>
-                        })
-                    }
-                </ul>
+                <div className="sidebar-buttons">
+                    <button className="btn btn-outline-light add-button" onClick={this.addNewProject}><i className="fa fa-plus-circle mr-1"></i> Add new project</button>
+                    <button className="btn btn-outline-light add-button mt-1" onClick={this.showAll}><i className="fa fa-plus-circle mr-1"></i> Show All</button>
+                </div>
+                <div className="sidebar-nav">
+                    <ul>
+                        {
+                            Object.keys(projects).map((key) => {
+                            return <li key={key} onClick={this.selectProject.bind(this, projects[key])}>{projects[key].title}</li>
+                            })
+                        }
+                    </ul>
+                </div>
             </div>
         )
     }

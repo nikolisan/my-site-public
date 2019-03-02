@@ -1,0 +1,18 @@
+.project-page {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;    
+}
+
+.hero-img-project {
+    position: fixed;
+    width: 100vw;
+    max-height: 40%;
+    overflow: hidden;
+}
+.hero-img-project img{
+    position: absolute;
+    min-width: 100%;
+    height: auto;
+    top: -50%;
+}

@@ -13,7 +13,7 @@ const Hero = props => {
                         <div className="col-12 text-center">
                             <p className="lead">civil engineer and tech hobbyist passionate for programming</p>
                             <p className="lead">
-                                <a href="#" className="btn btn-outline-dark btn-lg" role="button">See my work</a>
+                                <a href="#projects" className="btn btn-outline-dark btn-lg" role="button">See my work</a>
                             </p>
                         </div>
                         <div className="bottom-align-text">

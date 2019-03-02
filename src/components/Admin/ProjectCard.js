@@ -1,5 +1,9 @@
 import React from 'react';
 
+const removeProject = (callback, id) => {
+    callback(id)
+}
+
 const ProjectCard = (props) => {
     const project = props.project;
 
@@ -12,7 +16,7 @@ const ProjectCard = (props) => {
             </div>
             <div className="card-footer align-middle d-flex flex-row justify-content-end">
                 <button className="btn btn-light"><i className="fa fa-cog mr-1"></i> Edit</button>
-                <button className="btn btn-danger ml-1"><i className="fa fa-trash mr-1"></i> Delete</button>
+                <button className="btn btn-danger ml-1" onClick={() => { removeProject(props.removeProject, project.id) }}><i className="fa fa-trash mr-1"></i> Delete</button>
             </div>
         </div>
     )

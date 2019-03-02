@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Project extends Component {
 
     render () {
-        const {title, shortDesc, bgImage} = this.props.project;
+        const {title, shortDesc, bgImage, id, source} = this.props.project;
 
         const styleLarge = {
             backgroundImage: 'url(' + bgImage + ')'
@@ -22,7 +23,7 @@ class Project extends Component {
                     <div className="card-img-overlay d-flex flex-column text-center">
                             <h3 className="card-title d-md-none hover-show">{title}</h3>
                             <p className="card-text mt-auto d-md-none hover-show">{shortDesc}</p>
-                            <a href="#" className="btn btn-outline-dark d-md-none hover-show">See more</a>
+                            <a href={source} target="_blank" className="btn btn-outline-dark d-md-none hover-show">See more</a>
                     </div>
                 </div>
             </div>

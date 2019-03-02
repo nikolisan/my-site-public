@@ -24,6 +24,25 @@ $theme-colors: (
     overflow-x: hidden;
  }
 
+ html, body {
+   margin: 0 !important;
+   padding: 0 !important;
+   box-sizing: border-box !important;
+}
+*::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+  border-radius: 1em;
+}
+
 // loader
 $width: 30px;
 $height: 30px;
@@ -166,6 +185,14 @@ h1, h2, h3, h4, h5, .btn{
 
 // About $ Skills Sections
 
+.preview-card {
+  min-height: 40vh;
+}
+
+.card-text {
+  text-align: justify !important;
+}
+
 #about-me-section{
     background: url(../images/yosemite.jpg);
     background-size: cover;
@@ -181,13 +208,14 @@ h1, h2, h3, h4, h5, .btn{
 }
 
 .textbox {
+  min-height: 35vh !important;
 	outline: 3px solid $gray-500;
 	outline-offset: -1.5em;
     position: relative;
 }
 
 .text-box-head {
-    position: absolute;
+  position: absolute;
 	top: 0.2em;
 	left: 50%;
 	transform: translateX(-50%);
@@ -247,4 +275,10 @@ h1, h2, h3, h4, h5, .btn{
 
 .hide {
     display: none !important;
+}
+
+@media (max-width: 375px) {
+  * {
+    font-size: 10px;
+  }
 }
