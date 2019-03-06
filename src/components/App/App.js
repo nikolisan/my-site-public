@@ -19,15 +19,15 @@ class App extends Component {
   }
 
   addProject(data) {
-    // const randomImage = Math.floor(Math.random() * (1084 - 0 + 1)) + 0 ;
-    // const imgUrl = `https://picsum.photos/300/300/?image=${randomImage}`;
+    const randomImage = Math.floor(Math.random() * (1084 - 0 + 1)) + 0 ;
+    const imgUrl = `https://picsum.photos/300/300/?image=${randomImage}`;
    
     const id = Date.now();
     const newProject = {
       id: id,
       title: data.title,
       shortDesc: data.desc,
-      bgImage: data.bgImg,
+      bgImage: imgUrl,
       body: data.body,
       source: data.source,
       download: data.download
